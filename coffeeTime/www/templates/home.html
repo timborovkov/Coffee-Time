@@ -1,0 +1,16 @@
+<ion-view title="Home">
+  <ion-content scroll="false" padding="true" class="has-header">
+    <form class="list searchBar">
+      <label class="item item-input" name="search">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input ng-change="searchFieldChange()" ng-model="input.searchField" type="search" placeholder="Search">
+      </label>
+    </form>
+    <ul class="list" ng-show="searchResults.length > 0">
+        <li class="item" ng-repeat="res in searchResults" ng-click="clickSearchResult({{res}})">
+            {{res.name}}
+        </li>
+    </ul>
+    <div class="mainMap" id="map"></div>
+  </ion-content>
+</ion-view>

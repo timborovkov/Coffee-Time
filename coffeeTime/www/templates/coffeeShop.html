@@ -1,0 +1,44 @@
+<ion-view title="Coffee Shop" id="page9">
+  <ion-content padding="true" class="has-header">
+    <ion-slide-box disable-side-menu-drag="" style="width: calc(100% + 20px);height:50vh;margin-left:-10px;margin-top:-10px;">
+      <ion-slide ng-repeat="cafeimage in cafe.photos" style="background:url(&quot;{{cafeimage}}&quot;) no-repeat center;background-size:cover;width:100%;height:100%;"></ion-slide>
+    </ion-slide-box>
+    <div class="spacer" style="height: 10px;"></div>
+    <div>
+      <img ng-src="{{cafe.logo}}" style="display: block; width: auto; max-height: 100px; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="spacer" style="height: 10px;"></div>
+    <h1 style="color:#000000;font-weight:300;text-align:center;">
+        {{cafe.name}}
+    </h1>
+    <div id="coffeeShop-button-bar1" class="button-bar">
+      <button class="button button-positive  button-block button-outline">Order coffee</button>
+      <button class="button button-positive  button-block button-outline">Get directions</button>
+    </div>
+    <form id="coffeeShop-form3" class="list">
+      <label class="item item-select">
+        <span class="input-label">Category</span>
+        <select ng-change="menuCategoryChange()" ng-model="menuCategory">
+          <option value="0">Everything 😛</option>
+          <option value="1">Hot drinks ☕️</option>
+          <option value="3">Other drinks 🍷</option>
+          <option value="2">Food 🥗🍕</option>
+        </select>
+      </label>
+      <div class="spacer" style="height: 10px;"></div>
+      <ion-list id="coffeeShop-list3" class="manual-list-fullwidth">
+                  
+        <ion-item ng-repeat="item in menu" class="item-thumbnail-left positive">
+          <img ng-src="{{item.img}}">
+          <h2positive>{{item.name}}
+            <p style="white-space:normal;">{{item.description}}</p>
+            <h2>{{item.price | currency:"€ "}} </h2>
+            <ion-option-button class="button-positive">Add to cart</ion-option-button>
+          </h2positive>
+        </ion-item>
+
+      </ion-list>
+      <div class="spacer" style="height: 30px;"></div>
+    </form>
+  </ion-content>
+</ion-view>
